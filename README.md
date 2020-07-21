@@ -6,5 +6,5 @@ A tracking algorithm of given IDs with relaxation factor to adjust the searching
 
 * Works with python3
 
-* T. Nevolianis *
+T. Nevolianis
 
