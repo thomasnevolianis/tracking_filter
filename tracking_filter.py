@@ -10,7 +10,6 @@ import pandas as pd
 import moviepy.editor as mpy
 import gizeh as gz
 import argparse
-import os
 
 # Argparse
 parser = argparse.ArgumentParser(
@@ -104,12 +103,26 @@ for n in range(len(point1X)):
         (point2X[n] - point1X[n]) ** 2 + (point2Y[n] - point1Y[n]) ** 2)*0.12951)
     time.append(n*0.0333)
 
+#calculate distance
+
+distance = []
+time = []
+with open('output.txt','w') as myfile:
+    for n in range(len(point1X)):
+        distance.append(np.sqrt((point2X[n] - point1X[n]) ** 2 + (point2Y[n] - point1Y[n]) ** 2)*0.12951)
+        time.append(n*0.0333)
+        myfile.write(str(time[n]))
+        myfile.write(",")
+        myfile.write(str(distance[n]))
+        myfile.write("\n")
+    myfile.close()
+
 
 # plot the end-to-end distance versus time
 plt.plot(time, distance, 'r')
 plt.ylabel("End-to-end distance (um)")
 plt.xlabel("Time (s)")
-plt.title("10_5")
+plt.title("Microgel end-to-end distance calculation")
 plt.show()
 
 
