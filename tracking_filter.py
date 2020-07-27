@@ -95,16 +95,7 @@ point1X, point1Y = get_pointPosition(0)
 point2X, point2Y = get_pointPosition(1)
 
 
-# Calculate distance between these two IDs
-distance = []
-time = []
-for n in range(len(point1X)):
-    distance.append(np.sqrt(
-        (point2X[n] - point1X[n]) ** 2 + (point2Y[n] - point1Y[n]) ** 2)*0.12951)
-    time.append(n*0.0333)
-
-#calculate distance
-
+# Calculate distance between these two IDs and write the results on a txt file
 distance = []
 time = []
 with open('output.txt','w') as myfile:
